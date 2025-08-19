@@ -10,13 +10,13 @@ import 'package:slang/generated.dart';
 import 'strings.g.dart';
 
 // Path: <root>
-class TranslationsFr implements Translations {
+class TranslationsDe implements Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsFr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
+	TranslationsDe({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
 		  $meta = meta ?? TranslationMetadata(
-		    locale: AppLocale.fr,
+		    locale: AppLocale.de,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
 		    ordinalResolver: ordinalResolver,
@@ -24,39 +24,39 @@ class TranslationsFr implements Translations {
 		$meta.setFlatMapFunction(_flatMapFunction);
 	}
 
-	/// Metadata for the translations of <fr>.
+	/// Metadata for the translations of <de>.
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	/// Access flat map
 	@override dynamic operator[](String key) => $meta.getTranslation(key);
 
-	late final TranslationsFr _root = this; // ignore: unused_field
+	late final TranslationsDe _root = this; // ignore: unused_field
 
 	@override 
-	TranslationsFr $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsFr(meta: meta ?? this.$meta);
+	TranslationsDe $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsDe(meta: meta ?? this.$meta);
 
 	// Translations
-	@override String get app_title => 'Ma CMCI';
-	@override late final _TranslationsSplashFr splash = _TranslationsSplashFr._(_root);
+	@override String get app_title => 'Meine GMGC';
+	@override late final _TranslationsSplashDe splash = _TranslationsSplashDe._(_root);
 }
 
 // Path: splash
-class _TranslationsSplashFr implements TranslationsSplashEn {
-	_TranslationsSplashFr._(this._root);
+class _TranslationsSplashDe implements TranslationsSplashEn {
+	_TranslationsSplashDe._(this._root);
 
-	final TranslationsFr _root; // ignore: unused_field
+	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Ma CMCI';
+	@override String get title => 'Meine GMGC';
 }
 
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
-extension on TranslationsFr {
+extension on TranslationsDe {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'app_title': return 'Ma CMCI';
-			case 'splash.title': return 'Ma CMCI';
+			case 'app_title': return 'Meine GMGC';
+			case 'splash.title': return 'Meine GMGC';
 			default: return null;
 		}
 	}
