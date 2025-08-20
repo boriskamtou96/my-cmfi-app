@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'dev/i18n/strings.g.dart';
 import 'dev/routing/router.dart';
+import 'dev/themes/themes.dart';
 import 'dev/utils/scroll_behavior.dart';
 
 class App extends ConsumerWidget {
@@ -18,10 +19,10 @@ class App extends ConsumerWidget {
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
       scrollBehavior: AppCustomScrollBehavior(),
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: AppThemes.lightTheme,
+      darkTheme: AppThemes.darkTheme,
       routerConfig: router,
     );
   }
