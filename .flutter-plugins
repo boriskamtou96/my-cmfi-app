@@ -1,4 +1,8 @@
 # This is a generated file; do not edit or check into version control.
+app_links=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links-6.4.1/
+app_links_linux=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links_linux-1.0.3/
+app_links_web=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links_web-1.0.4/
+gtk=/Users/hardpro/.pub-cache/hosted/pub.dev/gtk-2.1.0/
 integration_test=/Users/hardpro/Developer/flutter/packages/integration_test/
 path_provider=/Users/hardpro/.pub-cache/hosted/pub.dev/path_provider-2.1.5/
 path_provider_android=/Users/hardpro/.pub-cache/hosted/pub.dev/path_provider_android-2.2.15/
@@ -15,6 +19,10 @@ shared_preferences_windows=/Users/hardpro/.pub-cache/hosted/pub.dev/shared_prefe
 sqflite=/Users/hardpro/.pub-cache/hosted/pub.dev/sqflite-2.4.1/
 sqflite_android=/Users/hardpro/.pub-cache/hosted/pub.dev/sqflite_android-2.4.0/
 sqflite_darwin=/Users/hardpro/.pub-cache/hosted/pub.dev/sqflite_darwin-2.4.1+1/
+url_launcher=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher-6.3.1/
+url_launcher_android=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher_android-6.3.14/
+url_launcher_ios=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher_ios-6.3.3/
 url_launcher_linux=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher_linux-3.2.1/
+url_launcher_macos=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher_macos-3.2.2/
 url_launcher_web=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher_web-2.3.3/
 url_launcher_windows=/Users/hardpro/.pub-cache/hosted/pub.dev/url_launcher_windows-3.1.4/

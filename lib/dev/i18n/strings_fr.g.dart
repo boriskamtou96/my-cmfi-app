@@ -37,6 +37,8 @@ class TranslationsFr implements Translations {
 
 	// Translations
 	@override String get app_title => 'Ma CMCI';
+	@override String get my => 'Ma';
+	@override String get cmfi => 'CMCI';
 	@override late final _TranslationsSplashFr splash = _TranslationsSplashFr._(_root);
 }
 
@@ -56,6 +58,8 @@ extension on TranslationsFr {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'app_title': return 'Ma CMCI';
+			case 'my': return 'Ma';
+			case 'cmfi': return 'CMCI';
 			case 'splash.title': return 'Ma CMCI';
 			default: return null;
 		}

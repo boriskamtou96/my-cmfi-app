@@ -43,6 +43,12 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	/// en: 'My CMFI'
 	String get app_title => 'My CMFI';
 
+	/// en: 'My'
+	String get my => 'My';
+
+	/// en: 'CMFI'
+	String get cmfi => 'CMFI';
+
 	late final TranslationsSplashEn splash = TranslationsSplashEn._(_root);
 }
 
@@ -64,6 +70,8 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'app_title': return 'My CMFI';
+			case 'my': return 'My';
+			case 'cmfi': return 'CMFI';
 			case 'splash.title': return 'My CMFI';
 			default: return null;
 		}

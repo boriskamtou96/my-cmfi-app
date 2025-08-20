@@ -37,6 +37,8 @@ class TranslationsEs implements Translations {
 
 	// Translations
 	@override String get app_title => 'Mi CMCI';
+	@override String get my => 'Mi';
+	@override String get cmfi => 'CMCI';
 	@override late final _TranslationsSplashEs splash = _TranslationsSplashEs._(_root);
 }
 
@@ -56,6 +58,8 @@ extension on TranslationsEs {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'app_title': return 'Mi CMCI';
+			case 'my': return 'Mi';
+			case 'cmfi': return 'CMCI';
 			case 'splash.title': return 'Mi CMCI';
 			default: return null;
 		}

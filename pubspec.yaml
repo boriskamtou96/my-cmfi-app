@@ -28,6 +28,8 @@ dependencies:
   shared_preferences:
   slang:
   slang_flutter:
+  flutter_hooks:
+  supabase_flutter: ^2.9.1
 
 dev_dependencies:
   flutter_test:
@@ -51,4 +53,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/2.0x/
+    - assets/images/3.0x/
     - assets/icons/
+    - assets/icons/2.0x/
+    - assets/icons/3.0x/

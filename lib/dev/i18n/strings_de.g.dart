@@ -37,6 +37,8 @@ class TranslationsDe implements Translations {
 
 	// Translations
 	@override String get app_title => 'Meine GMGC';
+	@override String get my => 'Meine';
+	@override String get cmfi => 'GMGC';
 	@override late final _TranslationsSplashDe splash = _TranslationsSplashDe._(_root);
 }
 
@@ -56,6 +58,8 @@ extension on TranslationsDe {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'app_title': return 'Meine GMGC';
+			case 'my': return 'Meine';
+			case 'cmfi': return 'GMGC';
 			case 'splash.title': return 'Meine GMGC';
 			default: return null;
 		}

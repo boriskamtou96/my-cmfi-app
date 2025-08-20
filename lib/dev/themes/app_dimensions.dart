@@ -5,9 +5,13 @@ class AppDimensions {
   static const double spacing4 = 4.0;
   static const double spacing8 = 8.0;
   static const double spacing12 = 12.0;
+  static const double spacing14 = 14.0;
   static const double spacing16 = 16.0;
   static const double spacing20 = 20.0;
   static const double spacing24 = 24.0;
+  static const double spacing26 = 26.0;
+  static const double spacing28 = 28.0;
+  static const double spacing30 = 30.0;
   static const double spacing32 = 32.0;
   static const double spacing40 = 40.0;
   static const double spacing48 = 48.0;
@@ -41,6 +45,7 @@ class AppDimensions {
   static const double radiusL = 16.0;
   static const double radiusXL = 20.0;
   static const double radiusXXL = 24.0;
+  static const double radiusXXXL = 32.0;
   static const double radiusCircular = 999.0;
 
   // Container Heights
