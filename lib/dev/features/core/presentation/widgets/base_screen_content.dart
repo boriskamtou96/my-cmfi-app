@@ -14,10 +14,12 @@ class BaseScreenContent extends ConsumerWidget {
         Positioned(
           top: AppDimensions.spacing100,
           right: -AppDimensions.spacing40,
-          child: RoundedHexagon(
-            size: 100,
-            color: AppColors.scaffoldBackgroundColorDark.withAlpha(10),
-            cornerRadius: 0,
+          child: IgnorePointer(
+            child: RoundedHexagon(
+              size: 100,
+              color: AppColors.scaffoldBackgroundColorDark.withAlpha(10),
+              cornerRadius: 0,
+            ),
           ),
         ),
       ],

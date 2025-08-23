@@ -3,7 +3,10 @@ class AppDimensions {
 
   // Spacing Values
   static const double spacing4 = 4.0;
+  static const double spacing5 = 5.0;
+  static const double spacing6 = 6.0;
   static const double spacing8 = 8.0;
+  static const double spacing10 = 10.0;
   static const double spacing12 = 12.0;
   static const double spacing14 = 14.0;
   static const double spacing16 = 16.0;
@@ -23,9 +26,13 @@ class AppDimensions {
   static const double spacing100 = 100.0;
 
   // Padding Values
+  static const double paddingZero = 0.0;
+  static const double paddingXXSS = 1.0;
+  static const double paddingXXS = 2.0;
   static const double paddingXS = 4.0;
   static const double paddingS = 8.0;
   static const double paddingM = 16.0;
+  static const double paddingM2 = 20.0;
   static const double paddingL = 24.0;
   static const double paddingXL = 32.0;
   static const double paddingXXL = 48.0;
@@ -103,6 +110,8 @@ class AppDimensions {
   static const double statsCardHeight = 100.0;
 
   // Font Sizes
+  static const double fontSizeXXS = 8.0;
+  static const double fontSizeXXSS = 10.0;
   static const double fontSizeXS = 12.0;
   static const double fontSizeS = 14.0;
   static const double fontSizeM = 16.0;

@@ -1,8 +1,11 @@
-import '../../../utils/common_import.dart';
-import '../../core/presentation/widgets/base_screen_content.dart';
-import '../../core/presentation/widgets/custom_richtext.dart';
+import '../../../../utils/common_import.dart';
+import '../../../core/infrastructure/setting_repository.dart';
+import '../../../core/presentation/widgets/base_screen_content.dart';
+import '../../../core/presentation/widgets/custom_richtext.dart';
+import '../../core/application/auth_notifier.dart';
 import '../infrastructure/datas.dart';
 import 'widgets/social_auth_buttons.dart';
+import 'widgets/termes_and_conditions.dart';
 
 class OnboardingScreen extends StatefulHookConsumerWidget {
   const OnboardingScreen({super.key});
@@ -191,16 +194,35 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                               child: const Text("Next"),
                             )
                           : ElevatedButton.icon(
-                              onPressed: () => context.go(Routes.onboarding),
+                              onPressed: () {
+                                ref
+                                    .read(settingRepositoryProvider)
+                                    .setOnboardingCompleted();
+                                context.push(Routes.register);
+                              },
                               icon: Image.asset("assets/icons/envelop.png"),
                               label: const Text("Continue with Email"),
                             ),
                     ),
                     const SizedBox(height: AppDimensions.spacing20),
                     SocialAuthConnexionButtons(
-                      onGoogleTap: () {},
-                      onAppleTap: () {},
+                      onGoogleTap: () async {
+                        ref
+                            .read(settingRepositoryProvider)
+                            .setOnboardingCompleted();
+                        await ref
+                            .read(authNotifierProvider.notifier)
+                            .signInWithGoogle();
+                      },
+                      onAppleTap: () {
+                        ref
+                            .read(settingRepositoryProvider)
+                            .setOnboardingCompleted();
+                      },
                     ),
+                    const SizedBox(height: AppDimensions.spacing20),
+                    TermesAndConditions(),
+                    const SizedBox(height: AppDimensions.spacing16),
                   ],
                 ),
               ),

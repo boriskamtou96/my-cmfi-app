@@ -12,7 +12,9 @@ class AppColors {
   static const Color secondaryBlue = Color(0xFF5E6272);
 
   // Gray Scale
+  static const Color gray110 = Color(0xFFF9F9F9);
   static const Color gray100 = Color(0xFFF5F5F5);
+  static const Color gray90 = Color(0xFFE5E5E5);
   static const Color gray80 = Color(0xFFE0E0E0);
   static const Color gray70 = Color(0xFFBDBDBD);
   static const Color gray60 = Color(0xFF292828);
@@ -26,6 +28,9 @@ class AppColors {
   // Scaffold background colors
   static const Color scaffoldBackgroundColor = Color(0xFFFFFFFF);
   static const Color scaffoldBackgroundColorDark = Color(0xFF1B202A);
+
+  // Transparent Colors
+  static const Color transparent = Color(0x00000000);
 
   // Buttons Colors
   static const Color floatingActionButtonColor = Color(0xFF78A037);

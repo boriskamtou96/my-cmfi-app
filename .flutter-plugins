@@ -1,7 +1,11 @@
 # This is a generated file; do not edit or check into version control.
-app_links=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links-6.4.1/
+app_links=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links-6.3.0/
 app_links_linux=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links_linux-1.0.3/
 app_links_web=/Users/hardpro/.pub-cache/hosted/pub.dev/app_links_web-1.0.4/
+google_sign_in=/Users/hardpro/.pub-cache/hosted/pub.dev/google_sign_in-6.2.2/
+google_sign_in_android=/Users/hardpro/.pub-cache/hosted/pub.dev/google_sign_in_android-6.1.35/
+google_sign_in_ios=/Users/hardpro/.pub-cache/hosted/pub.dev/google_sign_in_ios-5.9.0/
+google_sign_in_web=/Users/hardpro/.pub-cache/hosted/pub.dev/google_sign_in_web-0.12.4+4/
 gtk=/Users/hardpro/.pub-cache/hosted/pub.dev/gtk-2.1.0/
 integration_test=/Users/hardpro/Developer/flutter/packages/integration_test/
 path_provider=/Users/hardpro/.pub-cache/hosted/pub.dev/path_provider-2.1.5/

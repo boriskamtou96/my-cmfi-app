@@ -12,4 +12,10 @@ abstract class Env {
 
   @EnviedField(varName: 'SUPABASE_ANON', obfuscate: true)
   static final String supabaseAnon = _Env.supabaseAnon;
+
+  @EnviedField(varName: 'IOS_GOOGLE_AUTH_KEY', obfuscate: true)
+  static final String iosGoogleAuthKey = _Env.iosGoogleAuthKey;
+
+  @EnviedField(varName: 'WEB_GOOGLE_AUTH_KEY', obfuscate: true)
+  static final String webGoogleAuthKey = _Env.webGoogleAuthKey;
 }

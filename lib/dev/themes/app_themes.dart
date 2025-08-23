@@ -10,9 +10,30 @@ class AppThemes {
 
   static TextTheme get textThemeLight {
     return TextTheme(
-      titleLarge: TextStyle(
-        fontSize: 24,
+      titleLarge: GoogleFonts.poppins(
+        fontSize: 30,
+        fontWeight: FontWeight.w600,
+        color: AppColors.black,
+      ),
+      titleMedium: GoogleFonts.poppins(
+        fontSize: 20,
         fontWeight: FontWeight.bold,
+      ),
+      titleSmall: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+      bodyLarge: GoogleFonts.poppins(
+        fontSize: 16,
+        fontWeight: FontWeight.normal,
+      ),
+      bodyMedium: GoogleFonts.poppins(
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
+      bodySmall: GoogleFonts.poppins(
+        fontSize: 12,
+        fontWeight: FontWeight.normal,
       ),
     );
   }
@@ -33,6 +54,42 @@ class AppThemes {
       fontFamily: GoogleFonts.poppins().fontFamily,
       textTheme: textThemeLight,
       scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
+      appBarTheme: AppBarTheme(
+        backgroundColor: AppColors.scaffoldBackgroundColor,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        fillColor: AppColors.gray100,
+        filled: true,
+        suffixIconColor: AppColors.red,
+        hintStyle: GoogleFonts.poppins(
+          color: AppColors.secondaryBlue,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(AppDimensions.radiusL),
+            bottomRight: Radius.circular(AppDimensions.radiusL),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(AppDimensions.radiusL),
+            bottomRight: Radius.circular(AppDimensions.radiusL),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(AppDimensions.radiusL),
+            bottomRight: Radius.circular(AppDimensions.radiusL),
+          ),
+        ),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           elevation: 0,

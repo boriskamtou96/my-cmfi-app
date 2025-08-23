@@ -1,4 +1,4 @@
-import '../../../utils/common_import.dart';
+import '../../../../utils/common_import.dart';
 
 class OnboardingPageData {
   final String imagePath;
