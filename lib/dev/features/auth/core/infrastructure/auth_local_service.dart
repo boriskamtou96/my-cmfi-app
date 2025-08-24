@@ -26,6 +26,11 @@ class AuthLocalService {
   String? getUserProfilePicture() {
     return _sharedPreferences.getString(_userProfilePictureKey);
   }
+
+  void deleteUserData() {
+    _sharedPreferences.remove(_userFullNameKey);
+    _sharedPreferences.remove(_userProfilePictureKey);
+  }
 }
 
 final authLocalServiceProvider = Provider<AuthLocalService>((ref) {

@@ -113,7 +113,7 @@ class _SetProfileScreenState extends ConsumerState<SetProfileScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () => context.go(Routes.home),
+                            onPressed: () => context.push(Routes.home),
                             child: Text("Continue"),
                           ),
                         ),

@@ -76,6 +76,7 @@ class AuthRepository {
   Future<Result<void>> signOut() async {
     try {
       await _supabase.auth.signOut();
+      _authLocalService.deleteUserData();
       return Result.ok(null);
     } on AuthException catch (e) {
       return Result.error(e.message);

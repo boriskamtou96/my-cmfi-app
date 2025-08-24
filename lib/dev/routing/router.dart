@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
-import 'package:go_router/go_router.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../features/auth/core/application/auth_notifier.dart';
 import '../features/auth/login/presentation/login_screen.dart';
@@ -13,8 +11,8 @@ import '../features/home/core/presentation/home_screen.dart';
 import '../features/profile/presentation/profile_screen.dart';
 import '../features/splash/presentation/splash_screen.dart';
 import '../features/welcome/presentation/welcome_screen.dart';
+import '../utils/common_import.dart';
 import 'goroute_observer.dart';
-import 'routes.dart';
 
 part 'router.g.dart';
 
@@ -22,15 +20,13 @@ part 'router.g.dart';
 class Router extends _$Router {
   @override
   GoRouter build() {
-    final authState = ref.watch(authNotifierProvider);
-    final isOnboardingCompleted =
-        ref.watch(settingRepositoryProvider).isOnboardingCompleted;
-
     return GoRouter(
       debugLogDiagnostics: true,
       initialLocation: Routes.splash,
-      redirect: (context, state) =>
-          _redirect(context, state, authState, isOnboardingCompleted),
+      errorBuilder: (context, state) => ErrorScreen(
+        errorMessage: state.error.toString(),
+      ),
+      redirect: (context, state) => _redirect(context, state, ref),
       refreshListenable: _AuthStateNotifier(ref),
       observers: [
         GoRouterObserver(),
@@ -74,51 +70,74 @@ class Router extends _$Router {
 }
 
 String? _redirect(
-  context,
-  state,
-  AuthState authState,
-  bool isOnboardingCompleted,
+  BuildContext context,
+  GoRouterState state,
+  Ref ref,
 ) {
+  final client = Supabase.instance.client;
   final currentLocation = state.matchedLocation;
 
-  final isAuthenticated = authState.maybeWhen(
-    authenticated: (_) => true,
-    orElse: () => false,
-  );
+  final isAuthenticated = client.auth.currentUser != null;
+  final isOnboardingCompleted =
+      ref.read(settingRepositoryProvider).isOnboardingCompleted();
+  final isWelcomeCompleted =
+      ref.read(settingRepositoryProvider).isLetDoItCompleted();
+  final isProfileCompleted =
+      ref.read(settingRepositoryProvider).isProfileCompleted();
 
+  // Skip redirection for splash screen
   if (currentLocation == Routes.splash) {
-    if (!isOnboardingCompleted) {
-      return Routes.onboarding;
-    } else if (!isAuthenticated) {
-      return Routes.register;
-    } else {
-      return Routes.home;
-    }
-  }
-
-  if (currentLocation == Routes.onboarding) {
-    if (isOnboardingCompleted) {
-      return isAuthenticated ? Routes.home : Routes.register;
-    }
     return null;
   }
 
-  if (!isOnboardingCompleted) {
+  // 1. Welcome flow - First time users must see welcome
+  if (!isWelcomeCompleted && currentLocation != Routes.welcome) {
+    return Routes.welcome;
+  }
+
+  // 2. Onboarding flow - After welcome, show onboarding if not completed
+  if (isWelcomeCompleted &&
+      !isOnboardingCompleted &&
+      currentLocation != Routes.onboarding) {
     return Routes.onboarding;
   }
 
-  final isOnAuthFlow = currentLocation == Routes.register ||
-      currentLocation == Routes.login ||
-      currentLocation == Routes.setProfile;
-
-  if (isAuthenticated && isOnAuthFlow) {
-    return Routes.home;
+  // 3. Authentication flow - After onboarding, require auth
+  if (isOnboardingCompleted && !isAuthenticated) {
+    if (currentLocation != Routes.register && currentLocation != Routes.login) {
+      return Routes.register;
+    }
+    return null; // Allow staying on register/login
   }
 
-  final isProtectedRoute =
-      currentLocation == Routes.home || currentLocation == Routes.profile;
+  // 4. Profile setup flow - After auth, ensure profile is set
+  if (isAuthenticated && !isProfileCompleted) {
+    if (currentLocation != Routes.setProfile) {
+      // return Routes.setProfile;
+      return Routes.home;
+    }
+    return null; // Allow staying on setProfile
+  }
 
-  if (!isAuthenticated && isProtectedRoute) {
+  // 5. Authenticated users with complete profile
+  if (isAuthenticated && isProfileCompleted) {
+    // Redirect away from auth and setup screens to home
+    if (currentLocation == Routes.register ||
+        currentLocation == Routes.login ||
+        currentLocation == Routes.setProfile ||
+        currentLocation == Routes.onboarding ||
+        currentLocation == Routes.welcome) {
+      return Routes.home;
+    }
+
+    // Allow access to authenticated areas
+    if (currentLocation == Routes.home || currentLocation == Routes.profile) {
+      return null;
+    }
+  }
+
+  // 6. Protect authenticated routes
+  if (!isAuthenticated && currentLocation == Routes.home) {
     return Routes.register;
   }
 
@@ -133,4 +152,32 @@ class _AuthStateNotifier extends ChangeNotifier {
   }
 
   final Ref _ref;
+}
+
+class ErrorScreen extends StatelessWidget {
+  const ErrorScreen({super.key, required this.errorMessage});
+
+  final String errorMessage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(errorMessage),
+            SizedBox(height: AppDimensions.spacing16),
+            TextButton(
+              onPressed: () {
+                context.go(Routes.home);
+              },
+              child: const Text('Go to home'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

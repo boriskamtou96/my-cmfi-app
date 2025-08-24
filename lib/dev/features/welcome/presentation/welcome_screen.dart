@@ -1,4 +1,5 @@
 import '../../../utils/common_import.dart';
+import '../../core/infrastructure/setting_repository.dart';
 import '../../core/presentation/widgets/base_screen_content.dart';
 
 class WelcomeScreen extends ConsumerWidget {
@@ -80,7 +81,7 @@ class WelcomeScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppDimensions.spacing12),
               Text(
-                "You’re taking the first step in changing your life.  Let us guide you through it.",
+                "You’re taking the first step in changing your life. Let us guide you through it.",
                 style: GoogleFonts.poppins(
                   fontSize: AppDimensions.fontSizeS,
                   fontWeight: FontWeight.w400,
@@ -89,7 +90,10 @@ class WelcomeScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppDimensions.spacing24),
               ElevatedButton(
-                onPressed: () => context.go(Routes.onboarding),
+                onPressed: () {
+                  ref.read(settingRepositoryProvider).setLetDoItCompleted();
+                  context.go(Routes.onboarding);
+                },
                 child: Text("Let do it"),
               ),
               Spacer(),
