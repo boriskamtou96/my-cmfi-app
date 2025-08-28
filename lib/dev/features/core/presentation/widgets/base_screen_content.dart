@@ -12,7 +12,7 @@ class BaseScreenContent extends ConsumerWidget {
       children: [
         child,
         Positioned(
-          top: AppDimensions.spacing100,
+          top: AppDimensions.spacing30,
           right: -AppDimensions.spacing40,
           child: IgnorePointer(
             child: RoundedHexagon(

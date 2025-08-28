@@ -26,11 +26,9 @@ class AuthRepository {
       final googleAccount = await googleSignIn.signIn();
       final googleAuth = await googleAccount?.authentication;
 
-      _logger.info("Google Auth image: ${googleAccount?.photoUrl}");
-      _logger.info("Google name: ${googleAccount?.displayName}");
-
       _authLocalService.saveUserFullName(googleAccount?.displayName ?? "");
       _authLocalService.saveUserProfilePicture(googleAccount?.photoUrl ?? "");
+      _authLocalService.saveUserEmail(googleAccount?.email ?? "");
 
       final authResponse = await _supabase.auth.signInWithIdToken(
         provider: OAuthProvider.google,
@@ -64,9 +62,26 @@ class AuthRepository {
   ) async {
     try {
       final authResponse = await _supabase.auth.signInWithPassword(
-        email: email,
-        password: password,
+        email: email.trim(),
+        password: password.trim(),
       );
+      _authLocalService.saveUserEmail(email);
+      return Result.ok(authResponse);
+    } on AuthException catch (e) {
+      return Result.error(e.message);
+    }
+  }
+
+  Future<AuthResult> signUpWithEmail(
+    String email,
+    String password,
+  ) async {
+    try {
+      final authResponse = await _supabase.auth.signUp(
+        email: email.trim(),
+        password: password.trim(),
+      );
+      _authLocalService.saveUserEmail(email);
       return Result.ok(authResponse);
     } on AuthException catch (e) {
       return Result.error(e.message);
@@ -77,24 +92,29 @@ class AuthRepository {
     try {
       await _supabase.auth.signOut();
       _authLocalService.deleteUserData();
+      _logger.info("User logged out");
       return Result.ok(null);
     } on AuthException catch (e) {
       return Result.error(e.message);
     }
   }
 
-  bool isAuthenticated() {
-    var isAuthenticated = false;
-    _supabase.auth.onAuthStateChange.listen((data) {
-      if (data.event == AuthChangeEvent.signedIn) {
-        isAuthenticated = true;
-      }
-    });
-    return isAuthenticated;
-  }
+  bool isAuthenticated() =>
+      _supabase.auth.currentUser != null &&
+      _supabase.auth.currentSession != null;
 
-  User? currentUser() {
-    return _supabase.auth.currentUser;
+  User? get currentUser => _supabase.auth.currentUser;
+
+  Future<Result<void>> forgotPassword(String email) async {
+    try {
+      await _supabase.auth.resetPasswordForEmail(
+        email,
+        redirectTo: Env.supabaseUrl,
+      );
+      return Result.ok(null);
+    } on AuthException catch (e) {
+      return Result.error(e.message);
+    }
   }
 }
 

@@ -11,7 +11,14 @@ class CustomBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: onPressed ?? () => context.pop(),
+      onPressed: onPressed ??
+          () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go(Routes.login);
+            }
+          },
       padding: EdgeInsets.zero,
       highlightColor: AppColors.transparent,
       icon: Container(

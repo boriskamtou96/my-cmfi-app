@@ -1,13 +1,10 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 
 import '../../../../utils/common_import.dart';
-import '../../../auth/core/application/auth_notifier.dart';
 import '../../../auth/core/infrastructure/auth_local_service.dart';
-import 'widget/calendar_title.dart';
 import 'widget/custom_date_picker.dart';
 import 'widget/empty_report.dart';
 import 'widget/home_appbar.dart';
-import 'widget/user_image.dart';
 
 class HomeScreen extends StatefulHookConsumerWidget {
   const HomeScreen({super.key});

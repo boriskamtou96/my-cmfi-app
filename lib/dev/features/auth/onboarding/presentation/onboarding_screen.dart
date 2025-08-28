@@ -198,7 +198,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                                 ref
                                     .read(settingRepositoryProvider)
                                     .setOnboardingCompleted();
-                                context.push(Routes.register);
+                                context.goNamed(Routes.register);
                               },
                               icon: Image.asset("assets/icons/envelop.png"),
                               label: const Text("Continue with Email"),

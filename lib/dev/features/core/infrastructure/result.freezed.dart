@@ -37,20 +37,20 @@ mixin _$Result<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Ok<T> value) ok,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(_Ok<T> value) ok,
+    required TResult Function(_Error<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Ok<T> value)? ok,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(_Ok<T> value)? ok,
+    TResult? Function(_Error<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(Error<T> value)? error,
+    TResult Function(_Ok<T> value)? ok,
+    TResult Function(_Error<T> value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -110,8 +110,8 @@ class __$$OkImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$OkImpl<T> implements Ok<T> {
-  const _$OkImpl(this.value);
+class _$OkImpl<T> extends _Ok<T> {
+  const _$OkImpl(this.value) : super._();
 
   @override
   final T value;
@@ -175,8 +175,8 @@ class _$OkImpl<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Ok<T> value) ok,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(_Ok<T> value) ok,
+    required TResult Function(_Error<T> value) error,
   }) {
     return ok(this);
   }
@@ -184,8 +184,8 @@ class _$OkImpl<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Ok<T> value)? ok,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(_Ok<T> value)? ok,
+    TResult? Function(_Error<T> value)? error,
   }) {
     return ok?.call(this);
   }
@@ -193,8 +193,8 @@ class _$OkImpl<T> implements Ok<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(Error<T> value)? error,
+    TResult Function(_Ok<T> value)? ok,
+    TResult Function(_Error<T> value)? error,
     required TResult orElse(),
   }) {
     if (ok != null) {
@@ -204,8 +204,9 @@ class _$OkImpl<T> implements Ok<T> {
   }
 }
 
-abstract class Ok<T> implements Result<T> {
-  const factory Ok(final T value) = _$OkImpl<T>;
+abstract class _Ok<T> extends Result<T> {
+  const factory _Ok(final T value) = _$OkImpl<T>;
+  const _Ok._() : super._();
 
   T get value;
 
@@ -248,8 +249,8 @@ class __$$ErrorImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ErrorImpl<T> implements Error<T> {
-  const _$ErrorImpl(this.error);
+class _$ErrorImpl<T> extends _Error<T> {
+  const _$ErrorImpl(this.error) : super._();
 
   @override
   final Object error;
@@ -313,8 +314,8 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Ok<T> value) ok,
-    required TResult Function(Error<T> value) error,
+    required TResult Function(_Ok<T> value) ok,
+    required TResult Function(_Error<T> value) error,
   }) {
     return error(this);
   }
@@ -322,8 +323,8 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Ok<T> value)? ok,
-    TResult? Function(Error<T> value)? error,
+    TResult? Function(_Ok<T> value)? ok,
+    TResult? Function(_Error<T> value)? error,
   }) {
     return error?.call(this);
   }
@@ -331,8 +332,8 @@ class _$ErrorImpl<T> implements Error<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Ok<T> value)? ok,
-    TResult Function(Error<T> value)? error,
+    TResult Function(_Ok<T> value)? ok,
+    TResult Function(_Error<T> value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -342,8 +343,9 @@ class _$ErrorImpl<T> implements Error<T> {
   }
 }
 
-abstract class Error<T> implements Result<T> {
-  const factory Error(final Object error) = _$ErrorImpl<T>;
+abstract class _Error<T> extends Result<T> {
+  const factory _Error(final Object error) = _$ErrorImpl<T>;
+  const _Error._() : super._();
 
   Object get error;
 

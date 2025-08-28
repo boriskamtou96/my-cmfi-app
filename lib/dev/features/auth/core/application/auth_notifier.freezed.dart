@@ -22,7 +22,8 @@ mixin _$AuthState {
     required TResult Function() loading,
     required TResult Function(AuthResponse? user) authenticated,
     required TResult Function() unauthenticated,
-    required TResult Function(Object error) error,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +32,8 @@ mixin _$AuthState {
     TResult? Function()? loading,
     TResult? Function(AuthResponse? user)? authenticated,
     TResult? Function()? unauthenticated,
-    TResult? Function(Object error)? error,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +42,8 @@ mixin _$AuthState {
     TResult Function()? loading,
     TResult Function(AuthResponse? user)? authenticated,
     TResult Function()? unauthenticated,
-    TResult Function(Object error)? error,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$AuthState {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$AuthState {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$AuthState {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,7 +145,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() loading,
     required TResult Function(AuthResponse? user) authenticated,
     required TResult Function() unauthenticated,
-    required TResult Function(Object error) error,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
   }) {
     return initial();
   }
@@ -151,7 +158,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function(AuthResponse? user)? authenticated,
     TResult? Function()? unauthenticated,
-    TResult? Function(Object error)? error,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
   }) {
     return initial?.call();
   }
@@ -163,7 +171,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function(AuthResponse? user)? authenticated,
     TResult Function()? unauthenticated,
-    TResult Function(Object error)? error,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -180,6 +189,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
   }) {
     return initial(this);
   }
@@ -192,6 +202,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
   }) {
     return initial?.call(this);
   }
@@ -204,6 +215,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -262,7 +274,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(AuthResponse? user) authenticated,
     required TResult Function() unauthenticated,
-    required TResult Function(Object error) error,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
   }) {
     return loading();
   }
@@ -274,7 +287,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(AuthResponse? user)? authenticated,
     TResult? Function()? unauthenticated,
-    TResult? Function(Object error)? error,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
   }) {
     return loading?.call();
   }
@@ -286,7 +300,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(AuthResponse? user)? authenticated,
     TResult Function()? unauthenticated,
-    TResult Function(Object error)? error,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -303,6 +318,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
   }) {
     return loading(this);
   }
@@ -315,6 +331,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
   }) {
     return loading?.call(this);
   }
@@ -327,6 +344,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -412,7 +430,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function() loading,
     required TResult Function(AuthResponse? user) authenticated,
     required TResult Function() unauthenticated,
-    required TResult Function(Object error) error,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
   }) {
     return authenticated(user);
   }
@@ -424,7 +443,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function()? loading,
     TResult? Function(AuthResponse? user)? authenticated,
     TResult? Function()? unauthenticated,
-    TResult? Function(Object error)? error,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
   }) {
     return authenticated?.call(user);
   }
@@ -436,7 +456,8 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function()? loading,
     TResult Function(AuthResponse? user)? authenticated,
     TResult Function()? unauthenticated,
-    TResult Function(Object error)? error,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -453,6 +474,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
   }) {
     return authenticated(this);
   }
@@ -465,6 +487,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
   }) {
     return authenticated?.call(this);
   }
@@ -477,6 +500,7 @@ class _$AuthenticatedImpl implements _Authenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -543,7 +567,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function() loading,
     required TResult Function(AuthResponse? user) authenticated,
     required TResult Function() unauthenticated,
-    required TResult Function(Object error) error,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
   }) {
     return unauthenticated();
   }
@@ -555,7 +580,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function()? loading,
     TResult? Function(AuthResponse? user)? authenticated,
     TResult? Function()? unauthenticated,
-    TResult? Function(Object error)? error,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
   }) {
     return unauthenticated?.call();
   }
@@ -567,7 +593,8 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function()? loading,
     TResult Function(AuthResponse? user)? authenticated,
     TResult Function()? unauthenticated,
-    TResult Function(Object error)? error,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -584,6 +611,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
   }) {
     return unauthenticated(this);
   }
@@ -596,6 +624,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
   }) {
     return unauthenticated?.call(this);
   }
@@ -608,6 +637,7 @@ class _$UnauthenticatedImpl implements _Unauthenticated {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -627,7 +657,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
           _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
       __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Object error});
+  $Res call({String error});
 }
 
 /// @nodoc
@@ -646,7 +676,10 @@ class __$$ErrorImplCopyWithImpl<$Res>
     Object? error = null,
   }) {
     return _then(_$ErrorImpl(
-      null == error ? _value.error : error,
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -657,7 +690,7 @@ class _$ErrorImpl implements _Error {
   const _$ErrorImpl(this.error);
 
   @override
-  final Object error;
+  final String error;
 
   @override
   String toString() {
@@ -669,12 +702,11 @@ class _$ErrorImpl implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ErrorImpl &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -691,7 +723,8 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(AuthResponse? user) authenticated,
     required TResult Function() unauthenticated,
-    required TResult Function(Object error) error,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
   }) {
     return error(this.error);
   }
@@ -703,7 +736,8 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(AuthResponse? user)? authenticated,
     TResult? Function()? unauthenticated,
-    TResult? Function(Object error)? error,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
   }) {
     return error?.call(this.error);
   }
@@ -715,7 +749,8 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(AuthResponse? user)? authenticated,
     TResult Function()? unauthenticated,
-    TResult Function(Object error)? error,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -732,6 +767,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Authenticated value) authenticated,
     required TResult Function(_Unauthenticated value) unauthenticated,
     required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
   }) {
     return error(this);
   }
@@ -744,6 +780,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Authenticated value)? authenticated,
     TResult? Function(_Unauthenticated value)? unauthenticated,
     TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
   }) {
     return error?.call(this);
   }
@@ -756,6 +793,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Authenticated value)? authenticated,
     TResult Function(_Unauthenticated value)? unauthenticated,
     TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -766,13 +804,142 @@ class _$ErrorImpl implements _Error {
 }
 
 abstract class _Error implements AuthState {
-  const factory _Error(final Object error) = _$ErrorImpl;
+  const factory _Error(final String error) = _$ErrorImpl;
 
-  Object get error;
+  String get error;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ForgotPasswordImplCopyWith<$Res> {
+  factory _$$ForgotPasswordImplCopyWith(_$ForgotPasswordImpl value,
+          $Res Function(_$ForgotPasswordImpl) then) =
+      __$$ForgotPasswordImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ForgotPasswordImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$ForgotPasswordImpl>
+    implements _$$ForgotPasswordImplCopyWith<$Res> {
+  __$$ForgotPasswordImplCopyWithImpl(
+      _$ForgotPasswordImpl _value, $Res Function(_$ForgotPasswordImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ForgotPasswordImpl implements _ForgotPassword {
+  const _$ForgotPasswordImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.forgotPassword()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ForgotPasswordImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(AuthResponse? user) authenticated,
+    required TResult Function() unauthenticated,
+    required TResult Function(String error) error,
+    required TResult Function() forgotPassword,
+  }) {
+    return forgotPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(AuthResponse? user)? authenticated,
+    TResult? Function()? unauthenticated,
+    TResult? Function(String error)? error,
+    TResult? Function()? forgotPassword,
+  }) {
+    return forgotPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(AuthResponse? user)? authenticated,
+    TResult Function()? unauthenticated,
+    TResult Function(String error)? error,
+    TResult Function()? forgotPassword,
+    required TResult orElse(),
+  }) {
+    if (forgotPassword != null) {
+      return forgotPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Authenticated value) authenticated,
+    required TResult Function(_Unauthenticated value) unauthenticated,
+    required TResult Function(_Error value) error,
+    required TResult Function(_ForgotPassword value) forgotPassword,
+  }) {
+    return forgotPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Authenticated value)? authenticated,
+    TResult? Function(_Unauthenticated value)? unauthenticated,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_ForgotPassword value)? forgotPassword,
+  }) {
+    return forgotPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Authenticated value)? authenticated,
+    TResult Function(_Unauthenticated value)? unauthenticated,
+    TResult Function(_Error value)? error,
+    TResult Function(_ForgotPassword value)? forgotPassword,
+    required TResult orElse(),
+  }) {
+    if (forgotPassword != null) {
+      return forgotPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ForgotPassword implements AuthState {
+  const factory _ForgotPassword() = _$ForgotPasswordImpl;
 }

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import '../../../../../utils/common_import.dart';
 
 class UserImage extends StatelessWidget {
@@ -23,9 +25,12 @@ class UserImage extends StatelessWidget {
           ),
         ),
         child: CircleAvatar(
-          backgroundImage: NetworkImage(userProfilePicture ?? ""),
+          backgroundImage: userProfilePicture != null
+              ? CachedNetworkImageProvider(userProfilePicture!)
+              : AssetImage("assets/icons/user.png"),
           radius: 20,
-          backgroundColor: AppColors.gray100,
+          backgroundColor:
+              userProfilePicture != null ? AppColors.gray100 : AppColors.gray50,
         ),
       ),
     );

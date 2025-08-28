@@ -6,6 +6,7 @@ import '../../../core/shared/providers.dart';
 class AuthLocalService {
   final _userFullNameKey = 'user_full_name';
   final _userProfilePictureKey = 'user_profile_picture';
+  final _userEmailKey = 'user_email';
 
   final SharedPreferences _sharedPreferences;
 
@@ -27,9 +28,18 @@ class AuthLocalService {
     return _sharedPreferences.getString(_userProfilePictureKey);
   }
 
+  void saveUserEmail(String email) {
+    _sharedPreferences.setString(_userEmailKey, email);
+  }
+
+  String? getUserEmail() {
+    return _sharedPreferences.getString(_userEmailKey);
+  }
+
   void deleteUserData() {
     _sharedPreferences.remove(_userFullNameKey);
     _sharedPreferences.remove(_userProfilePictureKey);
+    _sharedPreferences.remove(_userEmailKey);
   }
 }
 

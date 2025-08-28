@@ -18,13 +18,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: CalendarTitle(),
       actions: [
-        if (userProfilePicture != null)
-          UserImage(
-            onTap: () async {
-              await ref.read(authNotifierProvider.notifier).signOut();
-            },
-            userProfilePicture: userProfilePicture,
-          ),
+        UserImage(
+          onTap: () async {
+            await ref.read(authNotifierProvider.notifier).signOut();
+          },
+          userProfilePicture: userProfilePicture,
+        ),
         const SizedBox(width: AppDimensions.spacing16),
       ],
     );

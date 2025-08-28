@@ -13,3 +13,6 @@ linter:
 analyzer:
   plugins:
     - custom_lint
+
+  errors:
+    prefer_relative_imports: ignore
