@@ -5,6 +5,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../../../env.dart';
 import '../../../core/infrastructure/result.dart';
+import '../domain/user_profile_response.dart';
 import 'auth_local_service.dart';
 
 typedef AuthResult = Result<AuthResponse>;
@@ -96,6 +97,61 @@ class AuthRepository {
       return Result.ok(null);
     } on AuthException catch (e) {
       return Result.error(e.message);
+    }
+  }
+
+  Future<Result<UserProfileResponse>> setProfile(UserProfileResponse d) async {
+    try {
+      final uid = _supabase.auth.currentSession?.user.id;
+      if (uid == null) return Result.error('User not authenticated');
+
+      final profilePicture = _authLocalService.getUserProfilePicture();
+
+      final payload = {
+        'user_id': uid,
+        'first_name': d.firstName,
+        'last_name': d.lastName,
+        'email': d.email,
+        'phone_number': d.phoneNumber,
+        'assembly': d.assembly,
+        'locality': d.locality,
+        'profile_picture': profilePicture ?? '',
+      };
+
+      final res = await _supabase
+          .from('user_profiles')
+          .upsert(payload, onConflict: 'user_id')
+          .select()
+          .single();
+
+      final userProfile = UserProfileResponse.fromJson(res);
+      return Result.ok(userProfile);
+    } on PostgrestException catch (e) {
+      _logger.severe('Error setting profile: ${e.message}');
+      return Result.error(e.message);
+    } catch (e) {
+      _logger.severe('Unexpected error setting profile: $e');
+      return Result.error('Unexpected error: $e');
+    }
+  }
+
+  Future<Result<UserProfileResponse>> getProfile() async {
+    try {
+      final uid = _supabase.auth.currentSession?.user.id;
+      if (uid == null) return Result.error('User not authenticated');
+      final profile = await _supabase
+          .from('user_profiles')
+          .select()
+          .eq('user_id', uid)
+          .single();
+      _logger.info('Profile: $profile');
+      return Result.ok(UserProfileResponse.fromJson(profile));
+    } on PostgrestException catch (e) {
+      _logger.severe('Error getting profile: ${e.message}');
+      return Result.error(e.message);
+    } catch (e) {
+      _logger.severe('Unexpected error getting profile: $e');
+      return Result.error('Unexpected error: $e');
     }
   }
 

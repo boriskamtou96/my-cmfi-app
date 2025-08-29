@@ -16,6 +16,7 @@ class CustomTextField extends HookConsumerWidget {
     this.labelText,
     this.controller,
     this.hasDeleteAll = false,
+    this.intialValue,
   });
 
   final String hintText;
@@ -30,6 +31,7 @@ class CustomTextField extends HookConsumerWidget {
   final String? labelText;
   final TextEditingController? controller;
   final bool? hasDeleteAll;
+  final String? intialValue;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -90,7 +92,8 @@ class CustomTextField extends HookConsumerWidget {
             children: [
               Text(labelText ?? ""),
               const SizedBox(height: AppDimensions.spacing5),
-              TextField(
+              TextFormField(
+                initialValue: intialValue,
                 onTap: onTap,
                 onChanged: (value) {
                   isTextNotEmpty.value = value.isNotEmpty;
@@ -111,7 +114,8 @@ class CustomTextField extends HookConsumerWidget {
               ),
             ],
           )
-        : TextField(
+        : TextFormField(
+            initialValue: intialValue,
             onTap: onTap,
             onChanged: (value) {
               isTextNotEmpty.value = value.isNotEmpty;
