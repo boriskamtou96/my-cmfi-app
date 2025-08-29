@@ -208,6 +208,7 @@ class _SetProfileScreenState extends ConsumerState<SetProfileScreen> {
                                             .read(setProfileNotifierProvider
                                                 .notifier)
                                             .setProfile(userProfile);
+                                        ref.invalidate(getProfileProvider);
                                       },
                                       child: Text("Continue"),
                                     ),
@@ -223,7 +224,7 @@ class _SetProfileScreenState extends ConsumerState<SetProfileScreen> {
                 );
               },
               error: (error, stackTrace) => Text(error.toString()),
-              loading: () => Center(child: const CircularProgressIndicator()),
+              loading: () => Center(child: const ProgressHubWidget()),
             ),
       ),
     );
