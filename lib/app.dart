@@ -5,10 +5,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:toastification/toastification.dart';
 
-import 'dev/i18n/strings.g.dart';
-import 'dev/routing/router.dart';
-import 'dev/themes/app_themes.dart';
-import 'dev/utils/scroll_behavior.dart';
+import 'src/i18n/strings.g.dart';
+import 'src/routing/router.dart';
+import 'src/themes/app_themes.dart';
+import 'src/utils/scroll_behavior.dart';
 
 final appInitializationProvider = FutureProvider<void>((ref) async {
   await Future.delayed(const Duration(seconds: 5));

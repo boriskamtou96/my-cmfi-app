@@ -4,9 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'app.dart';
-import 'dev/features/core/shared/providers.dart';
-import 'dev/i18n/strings.g.dart';
 import 'env.dart';
+import 'src/features/core/shared/providers.dart';
+import 'src/i18n/strings.g.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
